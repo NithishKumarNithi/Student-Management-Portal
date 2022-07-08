@@ -1,0 +1,62 @@
+<%- include('./shared/_header'); -%>
+
+<!-- Body -->
+
+<div class="container wrap my-5 ">
+    <div class="row">
+        <div class="col col-md-4">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search For Students" aria-label="Search For Students" aria-describedby="button-addon2">
+            <button class="btn btn-primary" type="button" id="button-addon2">Search</button>
+          </div>
+        </div>
+        <div class="col col-md-8">
+            <div class="text-end"><%- include('./_add_new'); -%></div>
+        </div>
+    </div>
+</div>
+
+<!-- Main Students Table -->
+<div class="container table-wrap overflow-auto">
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">S.No</th>
+            <th scope="col">Class</th>
+            <th scope="col">Section</th>
+            <th scope="col">Name Of Student</th>
+            <th scope="col">Name Of Father </th>
+            <th scope="col">Name Of Mother</th>
+            <th scope="col">Mobile Number</th>
+            <th scope="col">Date of Joining</th>
+            <th scope="col">Remarks</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">1</th>
+            <td>V</td>
+            <td>A</td>
+            <td>Arun</td>
+            <td>Senthil</td>
+            <td>Lakshmi</td>
+            <td>9874563210</td>
+            <td>2018</td>
+            <td>Average</td>
+          </tr>
+          <tr>
+            <th scope="row">2</th>
+            <td>V</td>
+            <td>A</td>
+            <td>Bharath</td>
+            <td>Saravanan</td>
+            <td>Bharathi</td>
+            <td>9876853210</td>
+            <td>2018</td>
+            <td>Good</td>
+          </tr>
+        </tbody>
+    </table>
+</div>
+
+<%- include('./shared/_footer'); -%>
