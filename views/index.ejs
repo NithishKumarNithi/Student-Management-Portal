@@ -16,47 +16,56 @@
     </div>
 </div>
 
+<!-- Class Info -->
+<div class="container mb-4"> <%- include('./info'); -%> </div>
+
 <!-- Main Students Table -->
 <div class="container table-wrap overflow-auto">
+  <div class="table-responsive">
     <table class="table table-bordered">
         <thead>
           <tr>
             <th scope="col">S.No</th>
-            <th scope="col">Class</th>
-            <th scope="col">Section</th>
-            <th scope="col">Name Of Student</th>
-            <th scope="col">Name Of Father </th>
-            <th scope="col">Name Of Mother</th>
-            <th scope="col">Mobile Number</th>
-            <th scope="col">Date of Joining</th>
-            <th scope="col">Remarks</th>
+            <th scope="col">
+              <div class="form-check">
+                <input class="form-check-input checkAllRow" type="checkbox">
+              </div>
+            </th>
+            <th scope="col">FirstName</th>
+            <th scope="col">LastName</th>
+            <th scope="col">Roll Number</th>
+            <th scope="col">Email</th>
+            <th scope="col">Phone Number</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th scope="row">1</th>
-            <td>V</td>
-            <td>A</td>
-            <td>Arun</td>
-            <td>Senthil</td>
-            <td>Lakshmi</td>
-            <td>9874563210</td>
-            <td>2018</td>
-            <td>Average</td>
-          </tr>
-          <tr>
-            <th scope="row">2</th>
-            <td>V</td>
-            <td>A</td>
-            <td>Bharath</td>
-            <td>Saravanan</td>
-            <td>Bharathi</td>
-            <td>9876853210</td>
-            <td>2018</td>
-            <td>Good</td>
-          </tr>
+          <% if (students) { %>
+            <% students.forEach(function(student,index){ %>
+              <tr  data-studentid = "<%= student.roll_number %>" >
+                <td><%= index + 1 %></td>
+                <td>
+                  <div class="form-check">
+                    <input class="form-check-input checkRow" type="checkbox">
+                  </div>
+                </td>
+                <td><%= student.firstname %></td>
+                <td><%= student.lastname %></td>
+                <td><%= student.roll_number %></td>
+                <td><%= student.email %></td>
+                <td><%= student.phonenumber %></td>
+              </tr>
+            <% }); %>
+          <% } else {  %>
+            <tr>
+              <td colspan="7" class="text-center">
+                <b>No data found</b>
+              </td>
+            </tr>
+          <% } %>
+
         </tbody>
     </table>
+  </div>
 </div>
-
+<%- include('./edit.ejs'); -%>
 <%- include('./shared/_footer'); -%>

@@ -1,0 +1,42 @@
+<!-- Modal -->
+<div class="modal fade" id="editStudentModal" tabindex="-1" aria-labelledby="editStudentModal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="editLabel">Edit Student</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div id="editFormAlert" class="alert alert-danger text-center d-none" role="alert">
+            Please Enter Details.
+          </div>
+          <form class="editStudent" id="editStudent">
+            <div class="mb-3 text-start">
+              <label class="form-label">FirstName</label>
+              <input type="text" name="firstname" id="editfirstname" class="form-control" required>
+            </div>
+            <div class="mb-3 text-start">
+              <label class="form-label">LastName</label>
+              <input type="text" name="lastname" id="editlastname" class="form-control" required>
+            </div>
+            <div class="mb-3 text-start">
+              <label class="form-label">Email</label>
+              <input type="email" name="email" id="editemail" class="form-control" required>
+            </div>
+            <div class="mb-3 text-start">
+              <label class="form-label">Roll Number</label>
+              <input type="text" name="roll_number" id="editroll_number" class="form-control" required>
+            </div>
+            <div class="mb-3 text-start">
+              <label class="form-label">Phone Number</label>
+              <input type="tel" name="phonenumber" id="editphonenumber" class="form-control" required>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" name="close" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" name="update" class="btn btn-primary" id="updateStudent">Update</button>
+        </div>
+      </div>
+    </div>
+  </div>

@@ -1,17 +1,23 @@
 const express = require('express');
+const router = require('./controller');
 const app = express();
+// database
+const database = require('./db');
 const port = 9999;
 
 // views
 app.set('view engine', 'ejs');
 
 // Middleware
-app.use(express.static('public'))
+app.use(express.static('public'));
+app.use(express.urlencoded({ extended: false }));
 
 // Routes
-app.get('/', (req, res) => {
-    res.render('index');
-})
+app.use('/',router)
+
+// Database Connect
+console.log("Database Connecting ...");
+database.connect();
 
 // Listening
 app.listen(port, () => {

@@ -4,4 +4,4 @@ body{
     box-sizing: border-box;
 }
 
-h1{ color: red;}
+tr.selected{ background: #00000011;}
