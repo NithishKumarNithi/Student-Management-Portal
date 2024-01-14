@@ -11,6 +11,8 @@ app.set('view engine', 'ejs');
 // Middleware
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+
 
 // Routes
 app.use('/',router)

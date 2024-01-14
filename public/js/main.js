@@ -15,6 +15,24 @@ let httpsRequest = {
                 body: data,
             }
         );
-    }
+    },
+    put : function(url,data){
+        return fetch(
+            url,
+            {
+                method: "PUT", 
+                body: data,
+            }
+        );
+    },
+    delete : function(url,data){
+        return fetch(
+            url,
+            {
+                method: "DELETE"
+            }
+        );
+    },
+
 };
 

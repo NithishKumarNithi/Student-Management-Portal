@@ -17,17 +17,7 @@ submitDev.onclick = function(event){
     }else formAlert.classList.remove('d-none');
 }
 
-// submit update-student
-updateStudent.onclick = function(event){
-    event.preventDefault();
-    let formData = forms.getData("editStudent");
-    if (forms.isValid(formData)) {
-        editFormAlert.classList.add('d-none');
-        // httpsRequest.put( URL+'/add-student', formData)
-        //  .then(res => res.text())
-        //  .then(r => console.log(r));
-    }else editFormAlert.classList.remove('d-none');
-}
+
 
 // get checked row to enable edit / delete data
 checkRows.forEach(function(checkRow){
@@ -71,6 +61,7 @@ function editStudent(data){
     editFormData[2].value = typeof(data) === 'object'? data.email : ' ';
     editFormData[3].value = typeof(data) === 'object'? data.roll_number : ' ';
     editFormData[4].value = typeof(data) === 'object'? data.phonenumber : ' ';
+
 }
 
 function deleteStudent(data){
@@ -79,11 +70,27 @@ function deleteStudent(data){
         event.preventDefault();
         if(confirm("Are you sure. You want to delete " + name)){
             console.log("Delete");
+            httpsRequest.delete( URL+'/delete/student/'+data.roll_number )
+            // httpsRequest.delete( URL+'/delete/student/541254' )
+            .then(res => res.text())
+            .then(r => console.log(r));
         }else{
             console.log("Don't Delete");
         }
     }
 }
+
+    // submit update-student
+    updateStudent.onclick = function(event){
+        event.preventDefault();
+        let formUpdateData = forms.getData("editStudent");
+        if (forms.isValid(formUpdateData)) {
+            editFormAlert.classList.add('d-none');
+            httpsRequest.put( URL+'/update/student', formUpdateData)
+            .then(res => res.text())
+            .then(r => console.log(r));
+        }else editFormAlert.classList.remove('d-none');
+    }
 
 function resetFormValue() { 
     editStudent(); 

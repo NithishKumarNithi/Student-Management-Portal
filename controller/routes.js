@@ -20,11 +20,15 @@ let controller = {
     },
     // update student
     updateStudent: async function(req, res) {
-
+        let updateStudent = await studentsCollection.updateStudent(req.body);
+        let result = updateStudent.matchedCount ? "student updated successfully" : "student update failed";
+        res.json({msg: result});
     },
     // delete student
     deleteStudent: async function(req, res) {
-
+        let r = await studentsCollection.deleteStudent(req.params.studentNo);
+        let result = r.deletedCount ? "student deleted successfully" : "student deletion failed";
+        res.json({msg: result });
     },
     // test
     test : function(req, res){
